@@ -11,3 +11,182 @@ function category(){shell();let u=new URLSearchParams(location.search), cs=u.get
 function categories(){shell();const root=qs('#allCategories');root.innerHTML=C.categories.map(c=>{let first=c.subcategories.flatMap(s=>s.products)[0],p=P[first];return `<article class="allCatCard"><a class="allCatTop" href="kategorija.html?cat=${c.slug}"><img loading="lazy" src="${p?.images?.[0]||''}" alt="${esc(c.name)}"><div><div class="eyebrow">Kategorija</div><h2>${esc(c.name)}</h2><span>${c.subcategories.length} potkategorija →</span></div></a><div class="subLinks">${c.subcategories.map(sub=>`<a href="kategorija.html?cat=${c.slug}&sub=${sub.slug}">${esc(sub.name)} <b>${sub.products.length}</b></a>`).join('')}</div></article>`}).join('')}
 function product(){shell();let id=new URLSearchParams(location.search).get('id'),p=P[id]||C.products[0];qs('#pCat').textContent=p.category+' / '+p.subcategory;qs('#pName').textContent=p.name;qs('#pSub').textContent=p.subcategory;qs('#mainImg').src=p.images[0];qs('#thumbs').innerHTML=p.images.map((im,i)=>`<img src="${im}" alt="${esc(p.name)} ${i+1}">`).join('');qsa('#thumbs img').forEach(x=>x.onclick=()=>qs('#mainImg').src=x.src);qs('#backCat').href='kategorija.html?cat='+slugify(p.category);function slugify(s){return C.categories.find(c=>c.name===s)?.slug||''}}
 function about(){shell()}function contact(){shell()}document.addEventListener('DOMContentLoaded',()=>{let page=document.body.dataset.page;({home,categories,category,product,about,contact}[page]||shell)()});
+/* =========================================================
+   ORTOMAX — PREMIUM SCROLL ANIMATIONS
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
+
+    /* ELEMENTI KOJI ULAZE ODOZDO */
+
+    const revealSelectors = [
+        ".sectionHead",
+        ".catCard",
+        ".productCard",
+        ".allCatCard",
+        ".trustItem",
+        ".consult",
+        ".missionPoint",
+        "#pName",
+        "#pSub",
+        "#thumbs"
+    ];
+
+
+    /* ELEMENTI KOJI ULAZE SA LEVE STRANE */
+
+    const leftSelectors = [
+        ".missionCopy"
+    ];
+
+
+    /* ELEMENTI KOJI ULAZE SA DESNE STRANE */
+
+    const rightSelectors = [
+        ".missionPhoto",
+        ".missionPoints"
+    ];
+
+
+    const prepareElements = () => {
+
+        document
+            .querySelectorAll(revealSelectors.join(","))
+            .forEach(el => {
+                if (!el.classList.contains("ortomax-visible")) {
+                    el.classList.add("ortomax-reveal");
+                }
+            });
+
+
+        document
+            .querySelectorAll(leftSelectors.join(","))
+            .forEach(el => {
+                if (!el.classList.contains("ortomax-visible")) {
+                    el.classList.add("ortomax-reveal-left");
+                }
+            });
+
+
+        document
+            .querySelectorAll(rightSelectors.join(","))
+            .forEach(el => {
+                if (!el.classList.contains("ortomax-visible")) {
+                    el.classList.add("ortomax-reveal-right");
+                }
+            });
+
+    };
+
+
+    const observer = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "ortomax-visible"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -35px 0px"
+        }
+    );
+
+
+    const observeElements = () => {
+
+        document
+            .querySelectorAll(
+                ".ortomax-reveal, .ortomax-reveal-left, .ortomax-reveal-right"
+            )
+            .forEach(el => {
+
+                if (!el.dataset.motionObserved) {
+
+                    el.dataset.motionObserved = "true";
+
+                    observer.observe(el);
+
+                }
+
+            });
+
+    };
+
+
+    /* PRVI LOAD */
+
+    prepareElements();
+    observeElements();
+
+
+    /*
+       Katalog i kartice kod tebe generiše JavaScript.
+       Zato pratimo DOM i automatski animiramo
+       nove kartice čim se pojave.
+    */
+
+    const mutationObserver = new MutationObserver(() => {
+
+        prepareElements();
+        observeElements();
+
+    });
+
+
+    mutationObserver.observe(
+        document.body,
+        {
+            childList: true,
+            subtree: true
+        }
+    );
+
+
+    /* PRODUCT GALLERY FADE */
+
+    const mainImage = document.querySelector("#mainImg");
+
+    if (mainImage) {
+
+        document.addEventListener("click", event => {
+
+            const thumb = event.target.closest("#thumbs img");
+
+            if (!thumb) return;
+
+            mainImage.style.opacity = "0";
+            mainImage.style.transform = "scale(.985)";
+
+            setTimeout(() => {
+
+                mainImage.style.opacity = "1";
+                mainImage.style.transform = "scale(1)";
+
+            }, 140);
+
+        });
+
+    }
+
+});
