@@ -705,23 +705,23 @@ body[data-page="product"] .productDescription{white-space:pre-line;line-height:1
 .navlinks a::after { background: #50C878; }
 .btn.outline { background: #fff; color: #238B52; }
 
-/* WHITE FOOTER — exact existing .footer class */
+/* ORTOMAX — LIGHT EMERALD FOOTER, DARK GRAY TEXT */
 html body .footer,
 html body footer {
-  background: #FFFFFF !important;
+  background: #EAF8EF !important;
   background-image: none !important;
-  background-color: #FFFFFF !important;
-  color: #000000 !important;
+  background-color: #EAF8EF !important;
+  color: #26332D !important;
 }
 html body .footer :is(h1,h2,h3,h4,h5,h6,p,a,span,small,strong,b,li,div),
 html body footer :is(h1,h2,h3,h4,h5,h6,p,a,span,small,strong,b,li,div) {
-  color: #000000 !important;
+  color: #26332D !important;
 }
 html body .footer .subfooter,
 html body footer .subfooter {
-  color: #000000 !important;
-  border-top: 1px solid #DDDDDD !important;
+  color: #26332D !important;
+  border-top: 1px solid #C7DDCF !important;
 }
 html body .footer hr,
-html body footer hr { border-color: #DDDDDD !important; }
-/* Keep the original logo artwork untouched. */
+html body footer hr { border-color: #C7DDCF !important; }
+/* Preserve original logo, site colors and mobile responsive rules. */
