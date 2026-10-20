@@ -711,4 +711,54 @@ footer,
 /* Zelene linije i detalji */
 .navlinks a::after {
   background-color: #50C878;
+
+/* ORTOMAX - BELI FOOTER */
+
+footer,
+.footer {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
 }
+
+/* Sav tekst i linkovi u footeru */
+footer p,
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer a,
+footer span,
+footer strong,
+footer li,
+footer small,
+.footer p,
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer a,
+.footer span,
+.footer strong,
+.footer li,
+.footer small {
+  color: #000000 !important;
+}
+
+/* Donji deo sa autorskim pravima */
+footer .footerBottom,
+footer .footer-bottom,
+footer .copyright,
+.footer .footerBottom,
+.footer .footer-bottom,
+.footer .copyright {
+  color: #000000 !important;
+  border-color: #DDDDDD !important;
+}
+
+/* Linije unutar footera */
+footer hr,
+.footer hr {
+  border-color: #DDDDDD !important;
+}
+
