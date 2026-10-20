@@ -759,6 +759,28 @@ footer .copyright,
 /* Linije unutar footera */
 footer hr,
 .footer hr {
+   
+/* ORTOMAX - POTPUNO BELI FOOTER */
+
+html body .footer {
+  background: #ffffff !important;
+  background-image: none !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html body .footer *,
+html body .footer a,
+html body .footer p,
+html body .footer h4,
+html body .footer .subfooter {
+  color: #000000 !important;
+}
+
+html body .footer .subfooter {
+  border-top: 1px solid #dddddd !important;
+}
+
   border-color: #DDDDDD !important;
 }
 
