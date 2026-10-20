@@ -673,3 +673,42 @@ body[data-page="product"] .productDescription{white-space:pre-line;line-height:1
   background: #fff;
   color: var(--ortomax-green-dark);
 }
+
+/* ORTOMAX - EMERALD GREEN */
+
+:root {
+  --ortomax-green: #50C878;
+  --ortomax-green-dark: #50C878;
+}
+
+/* Gornja informativna traka */
+.topbar,
+.topBar,
+.top-bar {
+  background: #50C878 !important;
+  background-color: #50C878 !important;
+}
+
+/* Footer */
+footer,
+.footer {
+  background: #50C878 !important;
+  background-color: #50C878 !important;
+}
+
+/* Besplatna konsultacija */
+.consult {
+  background: #50C878 !important;
+  background-image: none !important;
+}
+
+/* Glavna zelena dugmad */
+.btn:not(.outline),
+.nav-cta {
+  background-color: #50C878;
+}
+
+/* Zelene linije i detalji */
+.navlinks a::after {
+  background-color: #50C878;
+}
