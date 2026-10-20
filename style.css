@@ -614,3 +614,62 @@ body[data-page="product"] .productText .btn{max-width:100%;white-space:normal;te
 body[data-page="product"] .productDescription{white-space:pre-line;line-height:1.65;}
 @media(max-width:900px){body[data-page="product"] .productDetail{grid-template-columns:minmax(0,1fr);gap:24px;padding-top:24px;padding-bottom:30px;}body[data-page="product"] .productText h1{font-size:clamp(25px,6vw,36px);line-height:1.16;}body[data-page="product"] .mainImage{height:min(390px,85vw);}body[data-page="product"] .spec{padding:18px;}body[data-page="product"] .thumbs{max-width:100%;}}
 @media(max-width:480px){body[data-page="product"] .productText .actions{flex-direction:column;align-items:stretch;}body[data-page="product"] .productText .btn{width:100%;}body[data-page="product"] .pill{font-size:11px;}body[data-page="product"] .productText h1{font-size:clamp(23px,7vw,31px);}}
+
+/* ORTOMAX — EMERALD GREEN #50C878 */
+
+:root {
+  --ortomax-green: #50C878;
+  --ortomax-green-dark: #238B52;
+  --ortomax-green-light: #EAF8EF;
+}
+
+/* Dugmad */
+.btn,
+.nav-cta {
+  background-color: var(--ortomax-green);
+  color: #102719;
+}
+
+/* Tekst i zeleni detalji */
+.green,
+.eyebrow,
+.navlinks a:hover,
+.circleArrow,
+.allCatTop span,
+.subLinks b {
+  color: var(--ortomax-green);
+}
+
+/* Okviri */
+.circleArrow,
+.btn.outline {
+  border-color: var(--ortomax-green);
+}
+
+/* Svetlozelene pozadine */
+.pill,
+.trustIcon,
+.sidebar button:hover,
+.sidebar button.active {
+  background-color: var(--ortomax-green-light);
+}
+
+/* Navigacija */
+.navlinks a::after {
+  background: var(--ortomax-green);
+}
+
+/* Baner za konsultacije */
+.consult {
+  background: linear-gradient(
+    110deg,
+    #50C878,
+    #238B52
+  );
+}
+
+/* Zadržavamo čitljivost teksta */
+.btn.outline {
+  background: #fff;
+  color: var(--ortomax-green-dark);
+}
