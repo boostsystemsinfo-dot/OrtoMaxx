@@ -11,3 +11,15 @@ function category(){shell();let u=new URLSearchParams(location.search), cs=u.get
 function categories(){shell();const root=qs('#allCategories');root.innerHTML=C.categories.map(c=>{let first=c.subcategories.flatMap(s=>s.products)[0],p=P[first];return `<article class="allCatCard"><a class="allCatTop" href="kategorija.html?cat=${c.slug}"><img loading="lazy" src="${p?.images?.[0]||''}" alt="${esc(c.name)}"><div><div class="eyebrow">Kategorija</div><h2>${esc(c.name)}</h2><span>${c.subcategories.length} potkategorija →</span></div></a><div class="subLinks">${c.subcategories.map(sub=>`<a href="kategorija.html?cat=${c.slug}&sub=${sub.slug}">${esc(sub.name)} <b>${sub.products.length}</b></a>`).join('')}</div></article>`}).join('')}
 function product(){shell();let id=new URLSearchParams(location.search).get('id'),p=P[id]||C.products[0];qs('#pCat').textContent=p.category+' / '+p.subcategory;qs('#pName').textContent=p.name;qs('#pSub').textContent=p.subcategory;qs('#mainImg').src=p.images[0];qs('#thumbs').innerHTML=p.images.map((im,i)=>`<img src="${im}" alt="${esc(p.name)} ${i+1}">`).join('');qsa('#thumbs img').forEach(x=>x.onclick=()=>qs('#mainImg').src=x.src);qs('#backCat').href='kategorija.html?cat='+slugify(p.category);function slugify(s){return C.categories.find(c=>c.name===s)?.slug||''}}
 function about(){shell()}function contact(){shell()}document.addEventListener('DOMContentLoaded',()=>{let page=document.body.dataset.page;({home,categories,category,product,about,contact}[page]||shell)()});
+
+/* Gracefully handle missing catalog photos without broken-image text. */
+document.addEventListener('error',function(e){
+ const img=e.target;
+ if(!(img instanceof HTMLImageElement)||img.dataset.ortomaxFallback)return;
+ img.dataset.ortomaxFallback='1';
+ img.removeAttribute('src');
+ img.alt='Fotografija trenutno nije dostupna';
+ img.style.objectFit='contain';
+ img.style.background='#f3f7f5';
+ img.style.color='transparent';
+},true);

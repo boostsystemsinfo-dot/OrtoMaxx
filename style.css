@@ -562,3 +562,44 @@ a:active {
     }
 
 }
+
+/* ORTOMAX RESPONSIVE STABILITY PATCH — 2026 */
+html,body{max-width:100%;overflow-x:clip}
+body{min-width:0}
+.wrap{width:min(1440px,calc(100% - 32px));max-width:100%}
+.heroGrid,.heroCopy,.heroVisual,.mission,.missionCopy,.missionPhoto,.missionPoints,.productDetail,.productText,.catalogLayout,.catalogProducts,.allCategories,.allCatTop,.catGrid,.productGrid,.footerGrid,.contactGrid,.consult{min-width:0}
+.catCard,.productCard,.allCatCard,.allCatTop,.catBody,.productInfo,.subLinks a{min-width:0;max-width:100%}
+.productInfo b,.productInfo small,.catBody span,.allCatTop h2,.subLinks a,.productText h1,.productText p,.spec,.missionCopy p,.footer p,.footer a{overflow-wrap:anywhere;word-break:normal;white-space:normal}
+.productCard img,.catImg img,.allCatTop img,.mainImage img{display:block;max-width:100%;object-fit:contain}
+.productCard,.catCard{display:flex;flex-direction:column}
+.productInfo,.catBody{position:relative;z-index:1;flex:1;background:#fff}
+.mainImage{min-width:0;overflow:hidden}
+.mainImage img{min-width:0}
+.mega{max-width:calc(100vw - 24px)}
+.nav{min-width:0}
+.nav-cta{white-space:nowrap}
+@media(max-width:1100px){.nav-cta{display:none}.menuBtn{flex-shrink:0}.mega{top:100%;left:50%;width:min(600px,calc(100vw - 24px));max-height:calc(100dvh - 100px);overflow-y:auto;grid-template-columns:1fr}}
+@media(max-width:700px){
+ .wrap{width:calc(100% - 28px)}
+ .heroGrid,.heroCopy,.heroVisual{min-width:0}
+ .hero h1{font-size:clamp(30px,9vw,42px);overflow-wrap:break-word}
+ .heroVisual{min-height:300px}
+ .floatCard{max-width:calc(100% - 24px)}
+ .actions{flex-wrap:wrap}
+ .catGrid,.productGrid,.catalogProducts{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .catBody,.productInfo{padding:10px}
+ .catBody{font-size:12px}
+ .productInfo b{font-size:12px;line-height:1.4}
+ .productInfo small{font-size:11px}
+ .productCard img{height:145px;padding:8px}
+ .sectionHead{flex-wrap:wrap}
+ .mainImage{height:min(390px,95vw)}
+ .productText h1{font-size:clamp(26px,7.5vw,34px)}
+ .top-contact{flex-wrap:wrap}
+ .allCatTop{grid-template-columns:95px minmax(0,1fr);gap:12px}
+ .allCatTop img{width:95px;height:95px}
+ .allCatTop h2{font-size:clamp(17px,5vw,24px)}
+ .missionPoints{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:370px){.catGrid,.productGrid,.catalogProducts{grid-template-columns:repeat(2,minmax(0,1fr))}.circleArrow{width:24px;height:24px}}
+@media(hover:none){.catCard:hover,.productCard:hover,.allCatCard:hover{transform:none}}
