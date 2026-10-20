@@ -603,3 +603,14 @@ body{min-width:0}
 }
 @media(max-width:370px){.catGrid,.productGrid,.catalogProducts{grid-template-columns:repeat(2,minmax(0,1fr))}.circleArrow{width:24px;height:24px}}
 @media(hover:none){.catCard:hover,.productCard:hover,.allCatCard:hover{transform:none}}
+
+/* OrtoMax — product-page responsive correction (scoped) */
+body[data-page="product"] .productDetail {grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);max-width:100%;}
+body[data-page="product"] .productDetail > div,body[data-page="product"] .productText,body[data-page="product"] .spec,body[data-page="product"] .actions{min-width:0;max-width:100%;}
+body[data-page="product"] .productText h1,body[data-page="product"] .productText p,body[data-page="product"] .pill,body[data-page="product"] .spec,body[data-page="product"] .spec p{overflow-wrap:anywhere;word-break:normal;white-space:normal;}
+body[data-page="product"] .pill{max-width:100%;border-radius:14px;}
+body[data-page="product"] .productText .actions{display:flex;flex-wrap:wrap;}
+body[data-page="product"] .productText .btn{max-width:100%;white-space:normal;text-align:center;justify-content:center;}
+body[data-page="product"] .productDescription{white-space:pre-line;line-height:1.65;}
+@media(max-width:900px){body[data-page="product"] .productDetail{grid-template-columns:minmax(0,1fr);gap:24px;padding-top:24px;padding-bottom:30px;}body[data-page="product"] .productText h1{font-size:clamp(25px,6vw,36px);line-height:1.16;}body[data-page="product"] .mainImage{height:min(390px,85vw);}body[data-page="product"] .spec{padding:18px;}body[data-page="product"] .thumbs{max-width:100%;}}
+@media(max-width:480px){body[data-page="product"] .productText .actions{flex-direction:column;align-items:stretch;}body[data-page="product"] .productText .btn{width:100%;}body[data-page="product"] .pill{font-size:11px;}body[data-page="product"] .productText h1{font-size:clamp(23px,7vw,31px);}}
